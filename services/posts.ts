@@ -1,6 +1,6 @@
 import {prisma} from "@/lib/prisma";
 
-export function getPostsById(id: string) {
+export function getPostById(id: string) {
     return prisma.post.findUnique({
         where: {id}
     })

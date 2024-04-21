@@ -11,6 +11,7 @@ export const revalidate = 10
 
 export default async function Blog() {
     const posts = await getAllPosts()
+    console.log("posts:",posts)
 
     return (
         <>
@@ -21,6 +22,10 @@ export default async function Blog() {
                         <Link href={`/blog/${p.id}`}>{p.title}</Link>
                     </li>
                 )}
+
+                <Link href={"/blog/new"} >
+                    Add new post
+                </Link>
 
             </ul>
         </>

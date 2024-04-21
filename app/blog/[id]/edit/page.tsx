@@ -1,4 +1,4 @@
-import {getPostsById} from "@/services/posts";
+import {getPostById} from "@/services/posts";
 import {createPost, updatePost} from "@/app/blog/actions";
 
 
@@ -9,7 +9,7 @@ type Props = {
 }
 export default async function Profile({params: {id}}: Props) {
 
-    const post = await getPostsById(id)
+    const post = await getPostById(id)
 
     if (!post) {
         return <div>Post not found</div>
