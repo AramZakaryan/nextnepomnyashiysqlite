@@ -2,8 +2,16 @@
 
 import {redirect} from "next/navigation";
 import {revalidatePath} from "next/cache";
-import {Post} from "@prisma/client"
+// import {Post} from "@prisma/client"
 import {prisma} from "@/lib/prisma";
+
+type Post =
+    {
+        id: string
+        title: string
+        body: string
+    }
+
 
 export async function createPost(data: FormData) {
     const {title, body} = Object.fromEntries(data) as Omit<Post, "id">
