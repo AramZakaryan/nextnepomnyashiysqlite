@@ -2,11 +2,11 @@
 
 import {redirect} from "next/navigation";
 import {revalidatePath} from "next/cache";
-import type {Post} from "@prisma/client"
+// import type {Post} from "@prisma/client"
 import {prisma} from "@/lib/prisma";
 
 export async function createPost(data: FormData) {
-    const {title, body} = Object.fromEntries(data) as Omit<Post, "id">
+    const {title, body} = Object.fromEntries(data) as any //as Omit<Post, "id">
 
     const post = await prisma.post.create({
             data: {
@@ -20,7 +20,7 @@ export async function createPost(data: FormData) {
 }
 
 export async function updatePost(data: FormData) {
-    const {id, title, body} = Object.fromEntries(data) as Post
+    const {id, title, body} = Object.fromEntries(data) as any//as Post
 
     const post = await prisma.post.update({
         where: {id},
